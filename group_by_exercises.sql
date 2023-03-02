@@ -18,7 +18,7 @@ AND NOT last_name LIKE '%qu%'
 GROUP BY last_name
 ORDER BY last_name;
 
-SELECT COUNT(gender)
+SELECT COUNT(*), gender
 FROM employees
 WHERE first_name IN ('Irena', 'Vidya', 'Maya')
 GROUP BY gender;
