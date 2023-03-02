@@ -1,6 +1,5 @@
 USE ymir_employees;
 
-SELECT DISTINCT title FROM titles;
 
 SELECT DISTINCT last_name
 FROM employees
