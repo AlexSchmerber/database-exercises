@@ -51,8 +51,8 @@ FROM employees
 WHERE hire_date LIKE '199%' AND birth_date LIKE '%12-25'
 ORDER BY birth_date, hire_date desc;
 
-
-SELECT ((UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(hire_date)) / 86400) AS days_employed
+SELECT (datediff(now(), hire_date)) AS days_employed
+# SELECT ((UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(hire_date)) / 86400) AS days_employed
 FROM employees
 WHERE month(birth_date) = 12
 AND day(birth_date) = 25
