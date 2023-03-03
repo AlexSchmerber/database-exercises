@@ -8,7 +8,7 @@ WHERE e.hire_date IN (
     WHERE e2.emp_no = '101010'
     );
 
-SELECT t.title
+SELECT DISTINCT t.title
 FROM titles t
 WHERE t.emp_no IN (
     SELECT e.emp_no
@@ -16,10 +16,30 @@ WHERE t.emp_no IN (
     WHERE e.first_name = 'Aamod'
     );
 
-SELECT e.first_name as First_Name, e.last_name as Last_Name
+SELECT e.first_name as `First Name`, e.last_name as `Last Name`
 FROM employees e
-WHERE e.emp_no IN (
+WHERE e.gender = 'F' AND e.emp_no IN (
     SELECT dm.emp_no
     FROM dept_manager dm
-    WHERE e.gender = 'F' AND dm.to_date = '9999-01-01'
+    WHERE dm.to_date = '9999-01-01'
     );
+
+SELECT d.dept_name as dept_name
+FROM departments d
+WHERE d.dept_no IN (
+    SELECT dm.dept_no
+    FROM dept_manager dm
+    WHERE dm.to_date = '9999-01-01' AND dm.emp_no IN (
+        SELECT e.emp_no
+        FROM employees e
+        WHERE e.gender = 'F'
+        )
+    );
+
+# SELECT e.first_name, e.last_name
+# FROM employees e
+# WHERE e.emp_no = (
+#     select s.emp_no
+#     from salaries s
+#     order by s.salary
+#     limit 5);
