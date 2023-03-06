@@ -41,5 +41,5 @@ WHERE d.dept_no IN (
 # WHERE e.emp_no = (
 #     select s.emp_no
 #     from salaries s
-#     order by s.salary
-#     limit 5);
+#     order by s.salary desc
+#     limit 1);
