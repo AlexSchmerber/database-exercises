@@ -48,7 +48,7 @@ INNER JOIN ad_category ac on c.id = ac.category_id
 INNER JOIN ads a on ac.ad_id = a.id
 WHERE c.id = 4;
 
-SELECT a.title, a.description
+SELECT a.*
 FROM users u
 INNER JOIN ads a on u.id = a.user_id
 WHERE u.id = 8;
